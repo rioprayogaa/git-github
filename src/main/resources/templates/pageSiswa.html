@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+   
+    <title>Home</title>
+
+   
+    <!-- Bootstrap core CSS -->
+	<link th:href="@{css/bootstrap.css}" rel="stylesheet" media="screen"/>
+
+  
+    <link th:href="@{css/starter-template.css}" rel="stylesheet" media="screen"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#" style="margin-left: 70px;">Smkn 4 Padalarang</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/pageSiswa">Data Siswa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Data Nilai</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Nilai Tertinggi</a>
+      </li>
+     
+    </ul>
+     
+  </div>
+</nav>
+
+<main role="main" class="container">
+
+<h1 class="mb-4">Data Siswa</h1>
+
+	 <table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+ 
+      <th scope="col">Nama</th>
+      <th scope="col">Kelas</th>
+      <th scope="col">Jurusan</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="siswas : ${siswa}">
+      
+      <td th:text="${siswas.nama}"></td>
+      <td th:text="${siswas.kelas}"></td>
+      <td th:text="${siswas.jurusan}"></td>
+      <td>
+      	<a th:href="${'/pageSiswa/edit/'+siswas.id_siswa}"><span class="btn btn-primary">Edit</span></a>
+      	<a th:href="${'/pageSiswa/delete/'+siswas.id_siswa}"><span class="btn btn-danger">Hapus</span></a>
+      </td>
+    </tr>
+  </tbody>
+  
+</table>
+
+<div class="mt-3">
+	<a class="btn btn-primary" href="pageSiswa/create">Tambah Data Siswa</a>
+</div>
+
+
+
+</main><!-- /.container -->
+<script th:src="@{js/jquery.js}"></script>
+      <script th:src="@{js/bootstap.js}"></script>
+      </body>
+      
+</html>
+

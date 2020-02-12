@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+   
+    <title>Page Form Siswa</title>
+
+   
+    <!-- Bootstrap core CSS -->
+	<link th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen"/>
+
+  
+    <link th:href="@{/css/starter-template.css}" rel="stylesheet" media="screen"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#" style="margin-left: 70px;">Smkn 4 Padalarang</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/pageSiswa">Data Siswa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Data Nilai</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Nilai Tertinggi</a>
+      </li>
+     
+    </ul>
+     
+  </div>
+</nav>
+
+<main role="main" class="container">
+
+<div class="col-sm-8 mb-4">
+<h1>Form Siswa</h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-8">
+		<form class="form-horizontal" th:object="${siswa}" th:action="@{/pageSiswa/create}" method="post">
+			<input type="hidden" th:field="*{id_siswa}"/>
+			<input type="hidden" th:field="*{version}"/>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Nama</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" th:field="*{nama}"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Kelas</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" th:field="*{kelas}"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Jurusan</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" th:field="*{jurusan}"/>
+				</div>
+			</div>
+			
+			
+			<div class="row col-sm-10">
+			<div class="col-sm-8">
+			<button type="submit" class="btn btn-primary" >Simpan</button>
+			<a class="btn btn-secondary" href="/pageSiswa">Kembali</a>
+			</div>
+			
+			</div>
+			
+			
+		</form>
+		
+		
+	</div>
+</div>
+
+
+</main><!-- /.container -->
+<script th:src="@{/js/jquery.js}"></script>
+      <script th:src="@{/js/bootstap.js}"></script>
+      </body>
+      
+</html>
+
